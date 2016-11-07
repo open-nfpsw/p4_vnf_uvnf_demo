@@ -126,6 +126,9 @@ int pif_plugin_payload_scan(EXTRACTED_HEADERS_T *headers,
     /* same as above, but for mu. Code duplicated as a manual unroll */
     if (mu_len) {
         payload = (__addr40 void *)((uint64_t)pif_pkt_info_global.muptr << 11);
+        /* skip over the ctm part */
+        payload += 256 << pif_pkt_info_global.ctm_size;
+
         count = mu_len;
         while (count) {
             /* grab a maximum of chunk */

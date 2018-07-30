@@ -52,7 +52,7 @@ volatile __export __mem uint32_t needle_detections = 0;
 
 /* Payload chunk size in LW (32-bit) and bytes */
 #define CHUNK_LW 8
-#define CHUNK_B (CHUNK_LW/4)
+#define CHUNK_B ((CHUNK_LW)*4)
 
 volatile __export __mem uint32_t pif_mu_len = 0;
 
